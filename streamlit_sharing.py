@@ -1,7 +1,29 @@
+
 import streamlit as st
-import pandas as pd
+from stmol import showmol
+import py3Dmol
 
-st.write("My First Streamlit Web App")
+from rdkit import Chem
+from rdkit.Chem import AllChem
 
-df = pd.DataFrame({"one": [1, 2, 3], "two": [4, 5, 6], "three": [7, 8, 9]})
-st.write(df)
+st.title('RDKit + Py3DMOL 😀')
+
+def makeblock(smi):
+    mol = Chem.MolFromSmiles(smi)
+    mol = Chem.AddHs(mol)
+    AllChem.EmbedMolecule(mol)
+    mblock = Chem.MolToMolBlock(mol)
+    return mblock
+
+def render_mol(xyz):
+    xyzview = py3Dmol.view()#(width=400,height=400)
+    xyzview.addModel(xyz,'mol')
+    xyzview.setStyle({'stick':{}})
+    xyzview.setBackgroundColor('white')
+    xyzview.zoomTo()
+    showmol(xyzview,height=500,width=500)
+
+compound_smiles=st.text_input('SMILES please','CC')
+blk=makeblock(compound_smiles)
+render_mol(blk)
+view rawapp4.py hosted with ❤ by GitHub
