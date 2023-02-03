@@ -1,4 +1,3 @@
-
 import streamlit as st
 from stmol import showmol
 import py3Dmol
@@ -26,4 +25,3 @@ def render_mol(xyz):
 compound_smiles=st.text_input('SMILES please','CC')
 blk=makeblock(compound_smiles)
 render_mol(blk)
-view
