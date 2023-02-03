@@ -26,4 +26,4 @@ def render_mol(xyz):
 compound_smiles=st.text_input('SMILES please','CC')
 blk=makeblock(compound_smiles)
 render_mol(blk)
-view rawapp4.py hosted with ❤ by GitHub
+view
