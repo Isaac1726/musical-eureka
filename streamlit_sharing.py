@@ -17,4 +17,3 @@ else:
     xyzview.spin(False)
 xyzview.zoomTo()
 showmol(xyzview,height=500,width=800)
-view rawapp2.py hosted with ❤ by GitHub
