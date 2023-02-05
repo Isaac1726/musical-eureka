@@ -2,4 +2,3 @@ streamlit
 py3Dmol
 stmol
 requests
-json
